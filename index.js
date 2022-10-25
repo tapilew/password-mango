@@ -4,13 +4,13 @@ const charset = {
   lowercase: "abcdefghijklmnopqrstuvwxyz",
   uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
   numbers: "0123456789",
-  specialChar: "!@#$%^&*",
+  special: "!@#$%^&*",
 };
 
-let allowedChars = "";
+const charGroups = [];
 
 for (const prop in charset) {
-  allowedChars += charset[prop];
+  charGroups.push(prop);
 }
 
 function getRandomInt(min, max) {
@@ -19,7 +19,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-function getRandomStr(chars, len) {
+function getRandomStr(len, chars) {
   let result = "";
   for (let i = 0; i < len; i++) {
     const index = getRandomInt(0, chars.length);
@@ -28,4 +28,10 @@ function getRandomStr(chars, len) {
   return result;
 }
 
-function generatePassword() {}
+function generatePassword(len, groups = charGroups) {
+  let allowedChars = "";
+  for (let i = 0; i < groups.length; i++) {
+    allowedChars += charset[groups[i]];
+  }
+  return getRandomStr(len, allowedChars);
+}
