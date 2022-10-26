@@ -28,10 +28,30 @@ function getRandomStr(len, chars) {
   return result;
 }
 
-function generatePassword(len, groups = charGroups) {
+function rearrangeStrRandomly(str) {
+  let word = str;
+  let result = "";
+  for (let i = 0; i < str.length; i++) {
+    const index = getRandomInt(0, word.length);
+    result += word.substr(index, 1);
+    word = word.substr(0, index) + word.substr(index + 1);
+  }
+  return result;
+}
+
+function generatePassword(
+  len = 16,
+  minNum = 4,
+  minSpecial = 4,
+  groups = charGroups
+) {
+  let pw = "";
   let allowedChars = "";
   for (let i = 0; i < groups.length; i++) {
     allowedChars += charset[groups[i]];
   }
-  return getRandomStr(len, allowedChars);
+  pw += getRandomStr(minNum, charset.numbers);
+  pw += getRandomStr(minSpecial, charset.special);
+  pw += getRandomStr(len - pw.length, allowedChars);
+  return rearrangeStrRandomly(pw);
 }
