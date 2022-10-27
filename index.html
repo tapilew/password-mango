@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Mango</title>
+  </head>
+  <body>
+    <header>
+      <h1>Password Mango</h1>
+      <p>The greatest password generator</p>
+    </header>
+    <main>
+      <div id="app">
+        <div class="container"><div class="password"></div></div>
+        <div class="container">
+          <button class="regenerate">Regenerate password</button>
+          <button class="copy">Copy password</button>
+        </div>
+        <section class="options container">
+          <h2>Options</h2>
+          <div class="opts-cont container">
+            <div class="gen-n-copy container">
+              <select name="type" id="pw-type">
+                <option value="password">Password</option>
+                <option value="passphrase">Passphrase</option>
+              </select>
+            </div>
+            <div class="chars-allowed-opt container">
+              <div class="container">
+                <label for="length">Length</label>
+                <div>
+                  <input type="number" name="length" id="length" />
+                  <input
+                    type="range"
+                    name="length-progressbar"
+                    id="length-progressbar"
+                  />
+                </div>
+              </div>
+              <div class="opt-wrap">
+                <label for="uppercase">A-Z</label>
+                <input type="checkbox" name="uppercase" id="uppercase" />
+              </div>
+              <div class="opt-wrap">
+                <label for="lowercase">a-z</label>
+                <input type="checkbox" name="lowercase" id="lowercase" />
+              </div>
+              <div class="opt-wrap">
+                <label for="numbers">0-9</label>
+                <input type="checkbox" name="numbers" id="numbers" />
+              </div>
+              <div class="opt-wrap">
+                <label for="special">!@#$%^&*</label>
+                <input type="checkbox" name="special" id="special" />
+              </div>
+            </div>
+            <div class="min-char-opt container">
+              <div class="opt-wrap">
+                <label for="min-numbers">Minimum Numbers</label>
+                <input type="number" name="min-numbers" id="min-numbers" />
+              </div>
+              <div class="opt-wrap">
+                <label for="min-special">Minimum Special</label>
+                <input type="number" name="min-special" id="min-special" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer>Somewhere over the rainbow... is the content of this footer</footer>
+  </body>
+</html>
